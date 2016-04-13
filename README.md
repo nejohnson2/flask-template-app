@@ -9,7 +9,7 @@ git clone https://github.com/nejohnson2/flask-template-app.git new-app-name
 cd new-app-name
 
 echo "source venv/bin/activate" > .env
-echo "export APP_SETTINGS="config.DevelopmentConfig" >> .env
+echo "export APP_SETTINGS="config.DevelopmentConfig"" >> .env
 
 # create virtual environment
 virtualenv venv 
@@ -43,4 +43,6 @@ heroku config:set APP_SETTINGS="config.StagingConfig"
 heroku addons:create mongolab
 
 echo "export $(heroku config --shell | grep MONGODB_URI)" >> .env
+
+git push heroku master
 ```
