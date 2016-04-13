@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Configuration
 app.config.from_object(os.environ['APP_SETTINGS'])
-print(app.config, file=sys.stderr)
+
 # Database
 try:
 	parser = uri_parser.parse_uri(app.config['MONGODB_URI'])
