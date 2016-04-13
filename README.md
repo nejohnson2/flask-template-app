@@ -33,6 +33,9 @@ python app.py
 # create the app
 heroku create
 
+# rename app
+heroku apps:rename newname
+
 # define environmental variables
 heroku config:set APP_SETTINGS="config.StagingConfig"
 

@@ -24,6 +24,8 @@ def index():
 def read_data():
 	if request.method == "POST":
 		data = request.get_json()
+
+		# save to database
 		db.things.insert(data)
 
 		resp = Response(status=200)
