@@ -7,10 +7,14 @@ app = Flask(__name__)
 
 # Configuration
 app.config.from_object(os.environ['APP_SETTINGS'])
-
+print(app.config, file=sys.stderr)
 # Database
-parser = uri_parser.parse_uri(app.config['MONGODB_URI'])
-db = MongoClient(app.config['MONGODB_URI'])[parser['database']]
+try:
+	parser = uri_parser.parse_uri(app.config['MONGODB_URI'])
+	db = MongoClient(app.config['MONGODB_URI'])[parser['database']]
+	print("Successfully connected to database...", file=sys.stderr)
+except:
+	print('Failed to connect to MongoDB', file=sys.stderr)
 
 @app.route('/')
 def index():
