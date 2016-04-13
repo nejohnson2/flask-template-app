@@ -5,11 +5,10 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    MONGOLAB_URI = os.environ['MONGOLAB_URI']
+    MONGODB_URI = os.environ['MONGODB_URI']
 
 class ProductionConfig(Config):
     DEBUG = False
-
 
 class StagingConfig(Config):
     DEVELOPMENT = True

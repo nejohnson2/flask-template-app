@@ -25,7 +25,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
->>Note: If the app does not run immediately, it may be because the mongodb has not been configured on heroku.  Continue with the steps below which should solve the problem.
+>Note: If the app does not run immediately, it may be because the mongodb has not been configured on heroku.  Continue with the steps below which should solve the problem.
 
 ## Deploy to Heroku
 
@@ -39,5 +39,5 @@ heroku config:set APP_SETTINGS="config.StagingConfig"
 # add db
 heroku addons:create mongolab
 
-heroku config | grep MONGOLAB_URI >> .env
+echo "export $(heroku config --shell | grep MONGODB_URI)" >> .env
 ```
